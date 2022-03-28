@@ -35,9 +35,9 @@ Also dates without separation between elements. In the case of a date joined by 
 
 ### Examples of formats not currently supported
 
-- [x] YYYYMD
-- [x] Dates with years older than the year 2000
-- [x] Input with more than 3 elements that may be part of a date (Example: ``turned 24 on September 15, 2022``)
+- [ ] YYYYMD
+- [ ] Dates with years older than the year 2000
+- [ ] Input with more than 3 elements that may be part of a date (Example: ``turned 24 on September 15, 2022``)
 
 ## Languages currently supported
 
