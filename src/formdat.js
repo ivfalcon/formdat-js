@@ -306,26 +306,4 @@ class Formdat {
 }
 
 
-
-console.log(Formdat.dmy('con la fecha de 17022005', 'es'));
-console.log(Formdat.mdy('02/17/2009'));
-console.log(Formdat.dmy('17/02/2009'));
-console.log(Formdat.mdy('February 17, 2009'));
-console.log(Formdat.mdy('2/17/2009'));
-console.log(Formdat.mdy('December 18, 2010'));
-console.log(Formdat.ymd('2009/ 2/17'));
-console.log(Formdat.dmy('17 February, 2009'));
-console.log(Formdat.dmy('17 Feb, 2008'));
-console.log(Formdat.ymd('2009, Feb 17'));
-console.log(Formdat.mdy('Feb 12, 2014'));
-console.log(Formdat.dmy('17 Feb, 2014'));
-console.log(Formdat.dmy('14 enero, 2015', 'es'));
-console.log(Formdat.dmy('31122014'));
-console.log(Formdat.myd('12201531'));
-console.log(Formdat.dym('12 2015 enero', 'es'));
-console.log(Formdat.dmy('28/10/2020'))
-console.log(Formdat.dmy('28102020'))
-
-
-
 module.exports = { Formdat };
