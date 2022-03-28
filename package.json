@@ -1,0 +1,21 @@
+{
+  "name": "formdat-js",
+  "version": "1.0.0",
+  "description": "Module designed to receive any type of date format, and returns it in YYYYY/MM/DD format",
+  "main": "src/formdat.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "keywords": [],
+  "author": "ivfalcon",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
