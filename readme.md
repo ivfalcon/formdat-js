@@ -8,22 +8,22 @@
 ----
 ## How to use it
 
-### Try any date, even within phrases
+### Try any date, even within phrases. You only need to indicate the order of appearance of the Year (y), Month (m) and Day (d) of the date you want to format.
 
 | Input      | Output |
 | ----------- | ----------- |
-| ``Formdat.ymd('2022Sep15')``      | '2022/02/15'       |
-| ``Formdat.ydm('2022.09.15')``   | '2022/02/15'        |
-| ``Formdat.dmy('15, 9, 2022')``   | '2022/02/15'        |
-| ``Formdat.dym('15202209')``   | '2022/02/15'        |
-| ``Formdat.mdy('On September 15, 2022')``   | '2022/02/15'        |
+| ``Formdat.ymd('2022Sep15')``      | '2022/09/15'       |
+| ``Formdat.ydm('2022.09.15')``   | '2022/09/15'        |
+| ``Formdat.dmy('15, 9, 2022')``   | '2022/09/15'        |
+| ``Formdat.dym('15202209')``   | '2022/09/15'        |
+| ``Formdat.mdy('On September 15, 2022')``   | '2022/09/15'        |
 | ``Formdat.myd('2 - 22 - 15')``   | '2022/02/15'        |
 
 ### Also in other languages
 
 | Input      | Output |
 | ----------- | ----------- |
-| ``Formdat.dmy('28 de octubre de 2020', 'es')``      | '2022/10/15'       |
+| ``Formdat.dmy('28 de octubre de 2020', 'es')``      | '2020/10/28'       |
 | ``Formdat.mdy('octubre 28 de 2021', 'es')``   | '2021/10/28'        |
 | ``Formdat.dmy('23, abr., 2022', 'es')``   | '2022/04/23'        |
 
