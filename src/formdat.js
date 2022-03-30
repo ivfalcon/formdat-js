@@ -87,7 +87,7 @@ class Formdat {
    * @returns {boolean} Returns true if they are valid elements of a date or false if they are not.
    */
   static #isValidDate(year, month, day) {
-    const yearPattern = /^2(\d{3})$/;
+    const yearPattern = /^(1|2)(\d{3})$/;
     const monthPattern = /^(0[1-9]|1[0-2])$/;
     const dayPattern = /^([0-2][0-9]|3[0-1])$/;
 
