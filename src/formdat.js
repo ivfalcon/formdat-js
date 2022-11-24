@@ -9,7 +9,7 @@ const months = {
 * @param {string} lang Language of the date
 * @returns {array} the date elements needed, such as numbers or names of the month
 */
-function clean(detachedDate, lang = 'en') {
+function dateCleaner(detachedDate, lang = 'en') {
   return detachedDate.filter((el) => {
     const isDateElement = months[lang].some(monthArr => monthArr.some((month) => (month === el.toLowerCase() || (/^\d{1,4}$/).test(el))));
     if (isDateElement) return el;
@@ -37,9 +37,9 @@ function getUnifiedDate(unifiedDate, type = 'yearFirst') {
 * @param {string} type indicates whether the year is at the beginning, in the middle or at the end of the year
 * @returns array containing the date elements (year, month and day)
 */
-function dateDetacher(date, type = 'yearFirst', lang = 'en') {
+function dateTokenizer(date, type = 'yearFirst') {
   const result = [];
-  let test = date.toLowerCase().split(/[\/\,.\-\s]/).filter(el => el != '');
+  let test = date.toLowerCase().split(/[\/\,.\-\s\?\¿\!\¡]/).filter(el => el != '');
   const unifiedDatePattern = /^\d{8}$/;
 
   test.forEach((el) => {
@@ -73,7 +73,7 @@ function dateDetacher(date, type = 'yearFirst', lang = 'en') {
       }
     }
   })
-  return clean(result, lang);
+  return result;
 }
 
 /**
@@ -173,7 +173,7 @@ function mdy(date = '', lang = 'en') {
     return false;
   }
   let year, month, day;
-  const result = dateDetacher(date, 'yearLast', lang);
+  const result = dateCleaner(dateTokenizer(date, 'yearLast'), lang);
   if (result.length === 3) {
     [month, day, year] = [...result];
     if (!(/\d/).test(month)) {
@@ -196,7 +196,7 @@ function ydm(date = '', lang = 'en') {
     return false;
   }
   let year, month, day;
-  const result = dateDetacher(date, 'yearFirst', lang);
+  const result = dateCleaner(dateTokenizer(date, 'yearFirst'), lang);
   if (result.length === 3) {
     [year, day, month] = [...result];
     if (!(/\d/).test(month)) {
@@ -219,7 +219,7 @@ function ymd(date = '', lang = 'en') {
     return false;
   }
   let year, month, day;
-  const result = dateDetacher(date, 'yearFirst', lang);
+  const result = dateCleaner(dateTokenizer(date, 'yearFirst'), lang);
   if (result.length === 3) {
     [year, month, day] = [...result];
     if (!(/\d/).test(month)) {
@@ -242,7 +242,7 @@ function dmy(date = '', lang = 'en') {
     return false;
   }
   let year, month, day;
-  const result = dateDetacher(date, 'yearLast', lang);
+  const result = dateCleaner(dateTokenizer(date, 'yearLast'), lang);
   if (result.length === 3) {
     [day, month, year] = [...result];
     if (!(/\d/).test(month)) {
@@ -266,7 +266,7 @@ function myd(date = '', lang = 'en') {
   }
 
   let year, month, day;
-  const result = dateDetacher(date, 'yearMid', lang);
+  const result = dateCleaner(dateTokenizer(date, 'yearMid'), lang);
   if (result.length === 3) {
     [month, year, day] = [...result];
     if (!(/\d/).test(month)) {
@@ -289,7 +289,7 @@ function dym(date = '', lang = 'en') {
     return false;
   }
   let year, month, day;
-  const result = dateDetacher(date, 'yearMid', lang);
+  const result = dateCleaner(dateTokenizer(date, 'yearMid'), lang);
   if (result.length === 3) {
     [day, year, month] = [...result];
     if (!(/\d/).test(month)) {
@@ -301,4 +301,4 @@ function dym(date = '', lang = 'en') {
   else return false;
 }
 
-module.exports = { clean, getUnifiedDate, dateDetacher, isValidDate, monthSearch, addZeros, mdy, ydm, ymd, dmy, myd, dym };
+module.exports = { dateCleaner, getUnifiedDate, dateTokenizer, isValidDate, monthSearch, addZeros, mdy, ydm, ymd, dmy, myd, dym };
