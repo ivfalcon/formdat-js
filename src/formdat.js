@@ -129,7 +129,7 @@ function addZeros(year, month, day) {
   const monthLength = month.length;
   const dayLength = day.length;
   const voidPattern = /^((0000)|(000)|(00)|(0))$/;
-  if (dayLength > 4 || dayLength < 1 || voidPattern.test(year)) {
+  if (yearLength > 4 || yearLength < 1 || voidPattern.test(year)) {
     return [false, false, false];
   }
 

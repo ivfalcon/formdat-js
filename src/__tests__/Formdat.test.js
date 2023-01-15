@@ -90,18 +90,19 @@ describe('monthSearch()', () => {
         ${'apr'} | ${'es'} | ${''}
         ${'abr'} | ${'es'} | ${'4'}
         ${'abril'} | ${'es'} | ${'4'}
-    `('should return "$expected" when the detected month is "$a" and the lang id "$b"', ({ a, b, expected }) => {
+    `('should return "$expected" when the detected month is "$a" and the lang is "$b"', ({ a, b, expected }) => {
         const result = Formdat.monthSearch(a, b);
         expect(result).toBe(expected)
     })
 
 })
 
-describe('addZeros function add zeros to those elements of the date that do not comply with the format required', () => {
-    test.skip('should return an array of booleans if the desired date has not been found', () => {
-
+describe('addZeros()', () => {
+    test.only('should return an array of falsy booleans if the year gives has a length greater than 4 or lower than 1', () => {
+        expect(Formdat.addZeros('20001', '05', '06')).toEqual([false, false, false]);
+        expect(Formdat.addZeros('', '05', '06')).toEqual([false, false, false]);
     })
-    test.skip('should return an array of digits with the format length', () => {
+    test.skip('should return an array of falsy booleans if the year gives has a length greater than 4 or lower than 1', () => {
 
     })
 })
